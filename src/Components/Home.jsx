@@ -14,11 +14,12 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center my-10">
+      <div className="">
         <h2>Loading......</h2>
       </div>
     );
   }
+  // console.log(candidates);
   return (
     <section className="container mx-auto">
       <Form refetch={refetch} />
