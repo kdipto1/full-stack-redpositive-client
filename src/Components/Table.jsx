@@ -1,8 +1,9 @@
+import axios from "axios";
 import React from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import UpdateModal from "./UpdateModal";
 
-const Table = ({candidates,refetch}) => {
+const Table = ({ candidates, refetch }) => {
   // const [candidate, setCandidate] = useLocalStorage("candidates");
   // const candidates = props?.candidates;
   if (!candidates) {
@@ -19,6 +20,20 @@ const Table = ({candidates,refetch}) => {
     // setCandidate(candidate);
     // console.log(JSON.parse(localStorage.getItem("candidates")));
   };
+  // ++++++++++++++++++++++++++++ Delete candidate function
+  const handleDelete = async (id) => {
+    const url = `http://localhost:3000/deleteCandidate/${id}`;
+    try {
+      const { data } = await axios.delete(url);
+      // console.log(data);
+      if (data) {
+        refetch();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <table className="table table-warning">
@@ -57,6 +72,12 @@ const Table = ({candidates,refetch}) => {
                     key={candidate._id}
                     refetch={refetch}
                   />
+                  <button
+                    className="btn btn-danger ms-1"
+                    onClick={() => handleDelete(candidate._id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             </tbody>

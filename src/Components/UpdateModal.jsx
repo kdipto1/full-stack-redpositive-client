@@ -39,7 +39,7 @@ const UpdateModal = (props) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="warning" onClick={handleShow}>
         Update
       </Button>
 
@@ -105,23 +105,16 @@ const UpdateModal = (props) => {
                 required
               />
             </div>
-
-            <button
-              type="submit"
-              className="btn btn-warning"
-            >
-              Save
-            </button>
+            <Modal.Footer>
+              <button type="submit" className="btn btn-warning">
+                Save
+              </button>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
           </form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );
