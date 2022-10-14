@@ -8,7 +8,6 @@ const Form = () => {
     const phone = event.target.phone.value;
     const email = event.target.email.value;
     const hobbies = event.target.hobbies.value;
-    // console.log(name, phone, email, hobbies);
     const candidate = { name, phone, email, hobbies };
     const url = `http://localhost:3000/addCandidate`;
     await axios

@@ -1,11 +1,9 @@
 import axios from "axios";
 import React from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import SendData from "./SendData";
 import UpdateModal from "./UpdateModal";
 
 const Table = ({ candidates, refetch }) => {
-  // const [candidate, setCandidate] = useLocalStorage("candidates");
-  // const candidates = props?.candidates;
   if (!candidates) {
     return (
       <div className="">
@@ -35,7 +33,8 @@ const Table = ({ candidates, refetch }) => {
   };
 
   return (
-    <div>
+    <section className="mt-5">
+      <SendData/>
       <table className="table table-warning">
         <thead>
           <tr>
@@ -84,7 +83,7 @@ const Table = ({ candidates, refetch }) => {
           );
         })}
       </table>
-    </div>
+    </section>
   );
 };
 
