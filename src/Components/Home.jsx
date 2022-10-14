@@ -9,7 +9,9 @@ const Home = () => {
     isLoading,
     refetch,
   } = useQuery(["allCandidates"], () =>
-    fetch("http://localhost:3000/candidates").then((res) => res.json())
+    fetch("https://crud-redpositive.onrender.com/candidates").then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {

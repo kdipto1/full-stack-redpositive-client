@@ -20,7 +20,7 @@ const Table = ({ candidates, refetch }) => {
   };
   // ++++++++++++++++++++++++++++ Delete candidate function
   const handleDelete = async (id) => {
-    const url = `http://localhost:3000/deleteCandidate/${id}`;
+    const url = `https://crud-redpositive.onrender.com/deleteCandidate/${id}`;
     try {
       const { data } = await axios.delete(url);
       // console.log(data);
@@ -34,7 +34,7 @@ const Table = ({ candidates, refetch }) => {
 
   return (
     <section className="mt-5">
-      <SendData/>
+      <SendData />
       <table className="table table-warning">
         <thead>
           <tr>

@@ -22,7 +22,7 @@ const UpdateModal = (props) => {
     const hobbies = event?.target.hobbies.value;
     const candidate = { name, phone, email, hobbies };
     console.log(candidate);
-    const url = `http://localhost:3000/updateCandidates/${id}`;
+    const url = `https://crud-redpositive.onrender.com/updateCandidates/${id}`;
     await axios
       .put(url, candidate)
       .then((response) => {

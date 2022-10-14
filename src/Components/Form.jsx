@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 
-const Form = () => {
+
+const Form = ({ refetch }) => {
   const submitData = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -9,14 +10,15 @@ const Form = () => {
     const email = event.target.email.value;
     const hobbies = event.target.hobbies.value;
     const candidate = { name, phone, email, hobbies };
-    const url = `http://localhost:3000/addCandidate`;
+    const url = `https://crud-redpositive.onrender.com/addCandidate`;
     await axios
       .post(url, candidate)
       .then((response) => {
         const { data } = response;
         console.log(data);
         if (data) {
-          alert("Candidate added to database");
+          // alert("Candidate added to database");
+          refetch();
         }
       })
       .catch(function (error) {
