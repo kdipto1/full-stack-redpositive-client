@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 
 const Form = ({ refetch }) => {
@@ -17,7 +18,7 @@ const Form = ({ refetch }) => {
         const { data } = response;
         console.log(data);
         if (data) {
-          // alert("Candidate added to database");
+          toast("Candidate added to database");
           refetch();
         }
       })
