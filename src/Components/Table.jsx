@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import toast from "react-hot-toast";
 import SendData from "./SendData";
 import UpdateModal from "./UpdateModal";
 
@@ -25,6 +26,7 @@ const Table = ({ candidates, refetch }) => {
       const { data } = await axios.delete(url);
       // console.log(data);
       if (data) {
+        toast.success("Candidate deleted");
         refetch();
       }
     } catch (error) {

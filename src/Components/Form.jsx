@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-
 const Form = ({ refetch }) => {
   const submitData = async (event) => {
     event.preventDefault();
@@ -18,8 +17,12 @@ const Form = ({ refetch }) => {
         const { data } = response;
         console.log(data);
         if (data) {
-          toast("Candidate added to database");
+          toast.success("Candidate added to database");
           refetch();
+          event.target.name.value = "";
+          event.target.phone.value = "";
+          event.target.email.value = "";
+          event.target.hobbies.value = "";
         }
       })
       .catch(function (error) {

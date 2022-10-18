@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import toast from "react-hot-toast";
 
 const UpdateModal = (props) => {
   const candidate = props?.candidate;
@@ -29,6 +30,7 @@ const UpdateModal = (props) => {
         const { data } = response;
         // console.log(data);
         if (data) {
+          toast.success("Candidate updated")
           refetch();
         }
       })
